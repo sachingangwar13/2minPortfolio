@@ -49,8 +49,8 @@ console.log("Starting server...");
 console.log("Environment variables:", {
   PORT: process.env.PORT,
   NODE_ENV: process.env.NODE_ENV,
-  MONGODB_URI: process.env.MONGODB_URI ? "SET" : "NOT SET",
-  JWT_SECRET: process.env.JWT_SECRET ? "SET" : "NOT SET",
+  MONGODB_URL: process.env.MONGODB_URL ? "SET" : "NOT SET",
+  JWT_SECRET: process.env.ACCESS_TOKEN_SECRET ? "SET" : "NOT SET",
 });
 
 // Start server even if database connection fails
