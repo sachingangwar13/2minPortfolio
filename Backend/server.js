@@ -50,15 +50,18 @@ console.log("Environment variables:", {
   PORT: process.env.PORT,
   NODE_ENV: process.env.NODE_ENV,
   MONGODB_URI: process.env.MONGODB_URI ? "SET" : "NOT SET",
+  JWT_SECRET: process.env.JWT_SECRET ? "SET" : "NOT SET"
 });
 
-dbConnect()
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
-    });
-  })
-  .catch((error) => {
+// Start server even if database connection fails
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+  
+  // Try to connect to database, but don't fail if it doesn't work
+  dbConnect().then(() => {
+    console.log("Database connected successfully");
+  }).catch((error) => {
     console.error("Failed to connect to database:", error);
-    process.exit(1);
+    console.log("Server is running without database connection");
   });
+});
