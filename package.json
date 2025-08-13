@@ -8,9 +8,10 @@
     "frontend"
   ],
   "scripts": {
-    "start": "cd Backend && npm start",
+    "start": "cd Backend && npm install && npm start",
     "dev": "cd Backend && npm run dev",
-    "build": "cd frontend && npm run build"
+    "build": "cd frontend && npm run build",
+    "postinstall": "cd Backend && npm install"
   },
   "engines": {
     "node": ">=18.0.0"
