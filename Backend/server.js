@@ -10,9 +10,8 @@ import experienceRoutes from "./routes/experience.routes.js";
 import projectsRoutes from "./routes/projects.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
-dotenv.config({
-  path: "../.env",
-});
+// Load environment variables
+dotenv.config();
 
 const app = express();
 
@@ -38,10 +37,28 @@ app.use("/api/experience", experienceRoutes);
 app.use("/api/projects", projectsRoutes);
 app.use("/api/user", userRoutes);
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: "Something went wrong!" });
+});
+
 const port = process.env.PORT || 3000;
 
-dbConnect().then(() => {
-  app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-  });
+console.log("Starting server...");
+console.log("Environment variables:", {
+  PORT: process.env.PORT,
+  NODE_ENV: process.env.NODE_ENV,
+  MONGODB_URI: process.env.MONGODB_URI ? "SET" : "NOT SET",
 });
+
+dbConnect()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Failed to connect to database:", error);
+    process.exit(1);
+  });
