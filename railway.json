@@ -5,7 +5,7 @@
   },
   "deploy": {
     "startCommand": "cd Backend && npm start",
-    "healthcheckPath": "/api/user/me",
+    "healthcheckPath": "/",
     "healthcheckTimeout": 100,
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
