@@ -3,15 +3,10 @@
   "version": "1.0.0",
   "description": "2 Minute Portfolio Builder - Full Stack Application",
   "private": true,
-  "workspaces": [
-    "Backend",
-    "frontend"
-  ],
   "scripts": {
     "start": "node Backend/server.js",
-    "dev": "npm run dev --workspace Backend",
-    "build": "npm run build --workspace frontend",
-    "postinstall": "npm install --workspace Backend "
+    "dev": "cd Backend && npm run dev",
+    "build": "cd frontend && npm run build"
   },
   "engines": {
     "node": ">=20.0.0"
