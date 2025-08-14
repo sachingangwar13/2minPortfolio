@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-
-const API = "http://localhost:3000/api";
+import { API_BASE } from "./lib/config";
 
 function Section({ title, children }) {
   return (

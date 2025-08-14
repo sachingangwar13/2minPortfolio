@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { API_BASE } from "../../lib/config";
 
 export default function Settings() {
   const [theme, setTheme] = useState("emerald");
@@ -7,7 +8,7 @@ export default function Settings() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/user/me", {
+        const res = await fetch(`${API_BASE}/api/user/me`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         if (res.ok) {
@@ -20,7 +21,7 @@ export default function Settings() {
 
   async function save() {
     setMsg("");
-    const res = await fetch("http://localhost:3000/api/user/me", {
+    const res = await fetch(`${API_BASE}/api/user/me`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

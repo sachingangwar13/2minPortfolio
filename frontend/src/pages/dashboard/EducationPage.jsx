@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { API_BASE } from "../../lib/config";
 
-const API = "http://localhost:3000/api";
-
 export default function EducationPage() {
   const { userName } = useOutletContext();
   const [edu, setEdu] = useState({
