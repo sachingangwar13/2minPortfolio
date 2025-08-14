@@ -11,7 +11,7 @@
     "start": "node Backend/server.js",
     "dev": "npm run dev --workspace Backend",
     "build": "npm run build --workspace frontend",
-    "postinstall": "npm install --workspace Backend && npm install --workspace frontend"
+    "postinstall": "npm install --workspace Backend "
   },
   "engines": {
     "node": ">=22.12.0"
