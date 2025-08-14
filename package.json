@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node Backend/server.js",
     "dev": "cd Backend && npm run dev",
-    "build:frontend": "cd frontend && npm run build"
+    "build:frontend": "npm run build"
   },
   "engines": {
     "node": ">=20.0.0"
