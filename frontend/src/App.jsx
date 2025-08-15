@@ -16,6 +16,7 @@ import LinkPage from "./pages/dashboard/LinkPage";
 import Portfolio from "./pages/portfolio/Portfolio";
 import Settings from "./pages/dashboard/Settings";
 import ProtectedRoute from "./component/ProtectedRoute";
+import NotFound from "./pages/NotFound";
 function App() {
   return (
     <Router>
@@ -34,10 +35,11 @@ function App() {
             <Route path="preview" element={<PreviewPage />} />
             <Route path="link" element={<LinkPage />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Route>
         <Route path="/portfolio/:userName" element={<Portfolio />} />
-        {/* Other routes */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
