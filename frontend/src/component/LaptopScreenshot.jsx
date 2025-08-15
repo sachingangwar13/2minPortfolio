@@ -1,5 +1,5 @@
 import React from "react";
-import screenshot from "@/assets/screenshot.png";
+import screenshot from "@/assets/ss2.png";
 
 export const LaptopScreenshot = () => {
   return (
