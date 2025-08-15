@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Mail, Lock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { API_BASE } from "../lib/config";
 
 function Login() {
@@ -8,6 +8,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [googleReady, setGoogleReady] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const id = "google-oauth-script";
@@ -35,12 +36,12 @@ function Login() {
         if (!res.ok) throw new Error(data?.message || "Google login failed");
         localStorage.setItem("token", data.token);
         localStorage.removeItem("dashboardUserName");
-        window.location.href = "/dashboard";
+        navigate("/dashboard", { replace: true });
       } catch (e) {
         setError(e.message);
       }
     };
-  }, []);
+  }, [navigate]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -56,7 +57,7 @@ function Login() {
       if (!res.ok) throw new Error(data?.message || "Login failed");
       localStorage.setItem("token", data.token);
       localStorage.removeItem("dashboardUserName");
-      window.location.href = "/dashboard";
+      navigate("/dashboard", { replace: true });
     } catch (err) {
       setError(err.message);
     } finally {
