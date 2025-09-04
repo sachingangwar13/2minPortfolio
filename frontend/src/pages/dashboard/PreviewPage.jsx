@@ -39,19 +39,19 @@ export default function PreviewPage() {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center flex-col justify-between">
         <h2 className="text-xl font-semibold">Preview</h2>
         {userName && (
           <Link
             to={`/portfolio/${userName}`}
-            className="rounded-md bg-emerald-600 px-3 py-1 text-sm"
+            className="rounded-md bg-emerald-600 mt-10 px-3 py-1 text-sm"
           >
             Open Full Portfolio
           </Link>
         )}
       </div>
       {/* Theme chooser */}
-      <div className="rounded-lg border border-zinc-700 p-3">
+      {/* <div className="rounded-lg border border-zinc-700 p-3">
         <div className="mb-2 text-sm text-zinc-300">
           Choose a theme to preview and save
         </div>
@@ -92,9 +92,9 @@ export default function PreviewPage() {
           </button>
           {saveMsg && <span className="text-sm text-zinc-400">{saveMsg}</span>}
         </div>
-      </div>
+      </div> */}
       {/* Lightweight embedded preview: show hero + projects thumbnails with theme color */}
-      {data?.intro && (
+      {/* {data?.intro && (
         <div className="rounded-lg border border-zinc-700 p-4">
           <div className="flex items-center gap-4">
             <img
@@ -113,24 +113,7 @@ export default function PreviewPage() {
             </div>
           </div>
         </div>
-      )}
-      {data.projects && data.projects.length > 0 && (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {data.projects.map((p) => (
-            <div key={p._id} className="rounded-lg border border-zinc-700 p-3">
-              {p.image ? (
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="mb-2 h-40 w-full rounded-md object-cover"
-                />
-              ) : null}
-              <h3 className="text-lg font-semibold">{p.title}</h3>
-              <p className="text-sm text-zinc-400">{p.description}</p>
-            </div>
-          ))}
-        </div>
-      )}
+      )} */}
     </div>
   );
 }

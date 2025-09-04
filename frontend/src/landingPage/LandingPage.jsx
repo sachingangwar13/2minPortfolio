@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
-// import '../App.css'
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CoverDemo } from "../component/Cover";
 import { GithubIcon, TwitterIcon } from "lucide-react";
 import { LaptopScreenshot } from "../component/LaptopScreenshot";
-// import {HowItWorks} from "../pages/HowItWorks"
-
 import HowItWorks from "../pages/HowItWorks";
 import Features from "../component/Features";
 import FAQ from "../component/FAQ";
 
 function LandingPage() {
-  const [loggedIn, setLoggedIn] = useState(Boolean(localStorage.getItem("token")));
+  const [loggedIn, setLoggedIn] = useState(
+    Boolean(localStorage.getItem("token")),
+  );
 
   useEffect(() => {
     const onStorage = () => setLoggedIn(Boolean(localStorage.getItem("token")));
@@ -24,6 +23,7 @@ function LandingPage() {
     setLoggedIn(false);
     window.location.href = "/";
   }
+
   return (
     <div className="relative min-h-screen w-full bg-black">
          {" "}
@@ -34,75 +34,66 @@ function LandingPage() {
             "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120, 180, 255, 0.25), transparent 70%), #000000",
         }}
       />
-      
-      <nav className="relative z-10 w-full py-6">
-        <div className="container mx-auto flex items-center justify-between px-4 sm:justify-around sm:px-6 lg:px-8">
+      <nav className="flex justify-between relative z-10 w-full py-6">
+        <div className="container mx-auto flex items-center justify-around px-4 sm:justify-between sm:px-6 lg:px-8">
           <span className="inline-flex cursor-pointer items-center gap-2 from-pink-500 to-violet-500 text-[1rem] font-bold tracking-tight text-white transition-colors duration-300 hover:text-neutral-400 sm:text-2xl">
-            
-              <img
+            <img
               src="https://atomix-ui.vercel.app/_next/image?url=%2Flanding%2Fhero.png&w=64&q=75"
               alt="Portfolio Logo"
               className="mt-2 h-6 w-6 object-contain sm:h-8 sm:w-8"
             />
-            <Link to='/'>
-            2 Minute Portfolio
-            </Link>
+            <Link to="/">2MinutePortfolio</Link>
           </span>
 
-          <div className="flex items-center gap-3">
+          <div className=" gap-6 hidden md:flex ">
+            <p
+              className="font-bold text-neutral-50 hover:text-neutral-400 "
+              onClick={() => {
+                const el = document.getElementById("howItWorks");
+                if (el)
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
+              How it Works
+            </p>
+            <p
+              className="font-bold text-neutral-50 hover:text-neutral-400 "
+              onClick={() => {
+                const el = document.getElementById("features");
+                if (el)
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
+              Features
+            </p>
+          </div>
+          
+          <div className="flex  items-center gap-3 justify-between">
             <div className="flex gap-2 text-white sm:gap-4">
               <a
-                href="#"
+                href="https://twitter.com/sachinn_gangwar"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="rounded-full p-1.5 transition-all duration-300 hover:bg-neutral-100 sm:p-2 dark:hover:bg-neutral-800"
+                className="rounded-full hidden sm:flex p-1.5 transition-all duration-300 hover:bg-neutral-100 sm:p-2 dark:hover:bg-neutral-800"
                 aria-label="Twitter"
               >
-                {/* <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-twitter h-5 w-5 text-neutral-800 transition-colors duration-300 hover:text-neutral-600 sm:h-6 sm:w-6 dark:text-neutral-200 dark:hover:text-neutral-400"
-                  aria-hidden="true"
-                >
-                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                </svg> */}
-                <TwitterIcon/>
+                <TwitterIcon />
               </a>
 
               <a
                 href="https://github.com/sachingangwar13"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="rounded-full p-1.5 transition-all duration-300 hover:bg-neutral-100 sm:p-2 dark:hover:bg-neutral-800"
+                className="rounded-full hidden sm:flex p-1.5 transition-all duration-300 hover:bg-neutral-100 sm:p-2 dark:hover:bg-neutral-800"
                 aria-label="GitHub"
               >
-                {/* <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-github h-5 w-5 text-neutral-800 transition-colors duration-300 hover:text-neutral-600 sm:h-6 sm:w-6 dark:text-neutral-200 dark:hover:text-neutral-400"
-                  aria-hidden="true"
-                >
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                  <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                </svg> */}
-                <GithubIcon/>
+                <GithubIcon />
               </a>
               {loggedIn ? (
-                <button onClick={handleLogout} className="rounded-2xl bg-red-600 px-4 py-2 delay-100 hover:bg-red-800">
+                <button
+                  onClick={handleLogout}
+                  className="rounded-2xl bg-red-600 px-4 py-2 delay-100 hover:bg-red-800"
+                >
                   Logout
                 </button>
               ) : (
@@ -143,12 +134,13 @@ function LandingPage() {
 
             <button
               onClick={() => {
-                const el = document.getElementById('features');
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const el = document.getElementById("features");
+                if (el)
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
               className="group relative w-48 overflow-hidden rounded-lg border border-b-4 border-zinc-700 bg-zinc-950 px-4 py-3 font-medium text-zinc-300 duration-300 outline-none hover:border-t-4 hover:border-b hover:brightness-110 active:opacity-75 sm:w-48 sm:px-6"
             >
-              <span className="absolute -top-[150%] left-0 inline-flex h-[5px] w-80 rounded-md bg-zinc-400 opacity-50 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] duration-500 group-hover:top-[150%]"></span>
+              <span className="absolute -top-[150%] left-0 inline-flex h-[5px] w-80 rounded-md bg-zinc-400 opacity-50 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] duration-500 ease-in-out group-hover:top-[150%]"></span>
               <span className="text-base whitespace-nowrap sm:text-lg">
                 {" "}
                 Learn More{" "}
@@ -158,7 +150,7 @@ function LandingPage() {
         </div>
 
         <div
-          style={{ boxShadow: "0px 0px 2px 2px rgba(255, 255 ,255, .2)" }}
+          style={{ boxShadow: "0px 0px 4px 2px rgba(255, 255 ,255, .5)" }}
           className="mt-15 w-[60%] rounded-2xl border border-zinc-700 bg-transparent py-16 text-white"
         >
           <div className="mx-auto max-w-4xl px-4 text-center">
@@ -206,8 +198,8 @@ function LandingPage() {
           <LaptopScreenshot />
         </div>
 
-        <div>
-          <HowItWorks/>
+        <div id="howItWorks">
+          <HowItWorks />
         </div>
         <div id="features" className="mt-12 w-full">
           <Features />

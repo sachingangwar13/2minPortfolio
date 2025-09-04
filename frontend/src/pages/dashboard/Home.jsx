@@ -7,7 +7,6 @@ export default function Home() {
   useEffect(()=>{ setInput(userName || ""); }, [userName]);
   return (
     <div className="flex flex-col items-center justify-center py-20 text-center">
-      <img src="https://raw.githubusercontent.com/tonsky/FiraCode/master/extras/logo.svg" alt="Mascot" className="mb-6 h-24 w-24 opacity-80" />
       <h1 className="text-3xl font-bold">Hello, {userName || "there"}!</h1>
       <p className="mt-2 text-zinc-400">Welcome to your dashboard – let’s make things happen! 🚀</p>
       <div className="mt-6 w-full max-w-sm text-left">

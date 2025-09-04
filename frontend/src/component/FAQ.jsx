@@ -27,7 +27,7 @@ const faqs = [
 export default function FAQ() {
   const [open, setOpen] = useState(0);
   return (
-    <section className="w-full bg-[#0B0C0E] py-14">
+    <section className="w-full py-14">
       <div className="mx-auto w-full max-w-5xl px-4">
         <h2 className="text-center text-4xl font-extrabold tracking-tight text-pink-400">
           Curious? Check Out Our FAQs!
@@ -48,16 +48,22 @@ export default function FAQ() {
                   onClick={() => setOpen(isOpen ? -1 : idx)}
                   className="flex w-full items-center justify-between text-left"
                 >
-                  <span className="text-lg font-semibold">{item.q}</span>
+                  <span className="text-lg font-semibold hover:text-green-500 transition-all duration-200">{item.q}</span>
                   {isOpen ? (
                     <Minus className="h-5 w-5 text-purple-400" />
                   ) : (
                     <Plus className="h-5 w-5 text-purple-400" />
                   )}
                 </button>
-                {isOpen && (
-                  <p className="mt-3 text-sm leading-relaxed text-zinc-300">{item.a}</p>
-                )}
+                <div
+                  className={`grid transition-all duration-400 ease-in-out overflow-hidden ${
+                    isOpen ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <p className="text-sm leading-relaxed text-zinc-300 overflow-hidden">
+                    {item.a}
+                  </p>
+                </div>
               </div>
             );
           })}

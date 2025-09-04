@@ -1,13 +1,5 @@
 import mongoose from "mongoose";
 
-/*  
-    username,
-    fullName,
-    status -> hireme , looking for job, open to work,
-    socialLinks -> gmail, github, likedin , x, phone , image url
-
-
-*/
 
 const introductionSchema = new mongoose.Schema({
   userId: {

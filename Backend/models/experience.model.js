@@ -1,10 +1,5 @@
 import mongoose from "mongoose";
 
-/*
-    addExperience => company , role , duration, description
-    getExperience => username 
-    deleteExperience => experienceId
-*/
 
 const experienceSchema = new mongoose.Schema(
   {

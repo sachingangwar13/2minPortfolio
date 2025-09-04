@@ -63,7 +63,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="w-full bg-[#0B0C0E] py-14">
+    <section className="w-full py-14">
       <div className="mx-auto w-full max-w-6xl px-4">
         <h2 className="mb-10 text-center text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
           <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -86,7 +86,6 @@ export default function Features() {
           ))}
         </div>
 
-        
       </div>
     </section>
   );

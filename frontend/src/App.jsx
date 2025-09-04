@@ -17,6 +17,8 @@ import Portfolio from "./pages/portfolio/Portfolio";
 import Settings from "./pages/dashboard/Settings";
 import ProtectedRoute from "./component/ProtectedRoute";
 import NotFound from "./pages/NotFound";
+
+
 function App() {
   return (
     <Router>
@@ -24,6 +26,7 @@ function App() {
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<Home />} />
@@ -34,10 +37,10 @@ function App() {
             <Route path="projects" element={<ProjectsPage />} />
             <Route path="preview" element={<PreviewPage />} />
             <Route path="link" element={<LinkPage />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="*" element={<NotFound />} />
+            
           </Route>
         </Route>
+
         <Route path="/portfolio/:userName" element={<Portfolio />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

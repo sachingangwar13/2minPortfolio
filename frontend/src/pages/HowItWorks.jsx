@@ -27,8 +27,8 @@ function HowItWorks() {
             />
           </div>
           <div className="relative grid grid-cols-1 gap-x-12 gap-y-12 text-center md:grid-cols-3">
-            <div>
-              <div className="ml-30 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gray-600 bg-green-500 shadow">
+            <div >
+              <div className="ml-30 flex h-16 sm:ml-10 md:ml-20 w-16 xl:ml-30 items-center justify-center rounded-full border-2 border-gray-600 bg-green-500 shadow ">
                 <span className="text-xl font-semibold text-white">1</span>
               </div>
               <h3 className="mt-6 text-xl leading-tight font-semibold text-white md:mt-10">
@@ -53,7 +53,7 @@ function HowItWorks() {
               </p>
             </div>
             <div>
-              <div className="ml-35 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gray-600 bg-green-500 shadow">
+              <div className=" flex h-16 w-16 items-center justify-center rounded-full border-2 sm:ml-20 md:ml-28 xl:ml-35 border-gray-600 bg-green-500 shadow">
                 <span className="text-xl font-semibold text-white">3</span>
               </div>
               <h3 className="mt-6 text-xl leading-tight font-semibold text-white md:mt-10">

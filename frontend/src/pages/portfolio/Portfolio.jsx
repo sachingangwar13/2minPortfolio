@@ -20,7 +20,7 @@ function Section({ id, title, children, gradient }) {
       className="mx-auto w-full max-w-5xl scroll-mt-24 space-y-3 px-4 py-8"
     >
       <h2
-        className={`bg-gradient-to-r ${gradient} bg-clip-text text-2xl font-bold text-transparent`}
+        className={`bg-white bg-clip-text text-2xl font-bold text-transparent`}
       >
         {title}
       </h2>
@@ -105,7 +105,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-[#0B0C0E] text-white">
       {/* Top nav */}
-      <div className="sticky top-0 z-10 border-b border-zinc-800 bg-[#0B0C0E]/80 backdrop-blur">
+      {/* <div className="sticky top-0 z-10 border-b border-zinc-800 bg-[#0B0C0E]/80 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
           <a href="#" className="text-sm font-semibold text-white">
             {userName}'s Portfolio
@@ -128,10 +128,52 @@ export default function Portfolio() {
             </a>
           </nav>
         </div>
-      </div>
+      </div> */}
 
       {/* Hero */}
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-4 py-10 text-center">
+      <div className="mx-auto max-w-5xl flex justify-between px-10 py-10 text-center">
+        <div className="flex flex-col items-start gap-4">
+          <motion.h1
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="bg-white bg-clip-text text-3xl font-bold text-transparent md:text-4xl pb-2"
+          >
+            {intro.fullName || userName}
+          </motion.h1>
+          <div className="flex items-center gap-3 text-md font-semibold text-zinc-300">
+            {intro.status ? (
+              <>
+                <span className="rounded-full border border-emerald-500/30 bg-white px-3 py-0.5 text-black">
+                  Hire Me!
+                </span>
+                <span className="rounded-full border border-emerald-500/30 bg-white px-3 py-0.5 text-black">
+                  Tech Enthusiast
+                </span>
+              </>
+            ) : null}
+          </div>
+          <p className="text-lg font-bold text-zinc-400">{intro.title}</p>
+          <div className="flex items-center gap-3 text-sm text-zinc-300">
+            {intro.location ? (
+              <span className="inline-flex items-center gap-1 text-lg font-semibold">
+                <MapPin className="h-4 w-4" /> {intro.location}
+              </span>
+            ) : null}
+          </div>
+          <div className="mt-2 flex gap-3">
+            {socials.map(({ href, Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-zinc-700 p-2 text-zinc-300 hover:border-zinc-500 hover:text-white"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
+        </div>
         <motion.img
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -141,41 +183,8 @@ export default function Portfolio() {
             "https://avatars.githubusercontent.com/u/9919?v=4"
           }
           alt="profile"
-          className="h-28 w-28 rounded-full object-cover shadow-lg"
+          className="h-28 w-28 rounded-sm object-cover shadow-lg"
         />
-        <motion.h1
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl"
-        >
-          {intro.fullName || userName}
-        </motion.h1>
-        <p className="text-zinc-400">{intro.title}</p>
-        <div className="flex items-center gap-3 text-sm text-zinc-300">
-          {intro.location ? (
-            <span className="inline-flex items-center gap-1">
-              <MapPin className="h-4 w-4" /> {intro.location}
-            </span>
-          ) : null}
-          {intro.status ? (
-            <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-0.5 text-emerald-300">
-              {intro.status}
-            </span>
-          ) : null}
-        </div>
-        <div className="mt-2 flex gap-3">
-          {socials.map(({ href, Icon, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-zinc-700 p-2 text-zinc-300 hover:border-zinc-500 hover:text-white"
-            >
-              <Icon className="h-4 w-4" />
-            </a>
-          ))}
-        </div>
       </div>
 
       <Section id="about" title="About" gradient={gradient}>
@@ -184,8 +193,24 @@ export default function Portfolio() {
         </p>
       </Section>
 
+      <Section id="education" title="Education" gradient={gradient}>
+        {edu?.collegeName ? (
+          <div className="flex justify-between rounded-lg border border-zinc-800 bg-gray-800/50 p-4">
+            <div>
+              <div className="text-lg font-semibold">{edu.collegeName}</div>
+              <div className="mt-3 text-sm text-zinc-300">{edu.branchName}</div>
+            </div>
+            <div className="text-md my-2 font-semibold text-zinc-400">
+              {edu.passoutYear - 4 + " - " + edu.passoutYear}
+            </div>
+          </div>
+        ) : (
+          <div className="text-sm text-zinc-500">No education added.</div>
+        )}
+      </Section>
+
       <Section id="skills" title="Skills" gradient={gradient}>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="flex flex-col gap-5">
           {[
             { label: "Languages", list: skills.languages },
             { label: "Frameworks", list: skills.frameworks },
@@ -198,19 +223,19 @@ export default function Portfolio() {
           ].map((g) => (
             <div
               key={g.label}
-              className="rounded-lg border border-zinc-800 p-4"
+              className="rounded-lg border border-zinc-800 bg-gray-800/50 p-4"
             >
-              <div className="mb-2 text-sm font-semibold text-zinc-200">
+              <div className="mb-2 text-lg font-semibold text-zinc-200">
                 {g.label}
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="mt-3 flex flex-wrap gap-3">
                 {(g.list || []).length === 0 ? (
                   <span className="text-xs text-zinc-500">No items</span>
                 ) : (
                   g.list.map((t, i) => (
                     <span
                       key={i}
-                      className="rounded bg-zinc-800 px-2 py-1 text-xs text-zinc-200"
+                      className="rounded-full border border-neutral-600/40 bg-gray-800 px-3 py-2 text-xs text-zinc-200"
                     >
                       {t}
                     </span>
@@ -222,45 +247,51 @@ export default function Portfolio() {
         </div>
       </Section>
 
-      <Section id="education" title="Education" gradient={gradient}>
-        {edu?.collegeName ? (
-          <div className="rounded-lg border border-zinc-800 p-4">
-            <div className="text-lg font-semibold">{edu.collegeName}</div>
-            <div className="text-sm text-zinc-300">{edu.branchName}</div>
-            <div className="text-xs text-zinc-400">
-              Batch of {edu.passoutYear}
-            </div>
-          </div>
+      <Section id="experience" title="Work Experience" gradient={gradient}>
+        {exp.length === 0 ? (
+          <div className="text-sm text-zinc-500">No experience added.</div>
         ) : (
-          <div className="text-sm text-zinc-500">No education added.</div>
-        )}
-      </Section>
+          <div className="relative space-y-12 pl-10">
+            {/* Timeline line */}
 
-      <Section id="experience" title="Experience" gradient={gradient}>
-        <div className="space-y-3">
-          {exp.length === 0 ? (
-            <div className="text-sm text-zinc-500">No experience added.</div>
-          ) : (
-            exp.map((e) => (
-              <div
-                key={e._id}
-                className="rounded-lg border border-zinc-800 p-4"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="text-lg font-semibold">{e.company}</div>
-                  <div className="text-xs text-zinc-400">
-                    {new Date(e.createdAt).toLocaleDateString()}
-                  </div>
+            {exp.map((e) => (
+              <div key={e._id} className="relative space-y-12 pl-8">
+                {/* Timeline dot */}
+                <div className="absolute left-[11px] top-2 h-full w-0.5 bg-gray-700"></div>
+                <div className="reltive">
+                  <div className="absolute left-[-1px] flex h-6 w-6 items-center justify-center rounded-full border-2 border-green-500 bg-green-500">
+                  <div className="h-2 w-2 rounded-full bg-white"></div>
                 </div>
-                <div className="text-sm text-zinc-300">{e.role}</div>
-                <div className="text-xs text-zinc-400">{e.duration}</div>
-                {e.description ? (
-                  <p className="mt-2 text-sm text-zinc-300">{e.description}</p>
-                ) : null}
+                </div>
+
+                {/* Card */}
+                <div className="rounded-xl border border-zinc-800 bg-gray-800/70 p-5 shadow-md">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-white">
+                      {e.company}
+                    </h3>
+                    <span className="text-xs text-zinc-400">
+                      {new Date(e.createdAt).toLocaleDateString()}
+                    </span>
+                  </div>
+                  <div className="text-sm text-zinc-300">{e.role}</div>
+                  <div className="text-xs text-zinc-400">{e.duration}</div>
+
+                  {e.description && (
+                    <>
+                      <h4 className="mt-3 font-semibold text-zinc-200">
+                        Responsibilities:
+                      </h4>
+                      <p className="mt-1 text-sm leading-relaxed text-zinc-300">
+                        {e.description}
+                      </p>
+                    </>
+                  )}
+                </div>
               </div>
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </Section>
 
       <Section id="projects" title="Projects" gradient={gradient}>

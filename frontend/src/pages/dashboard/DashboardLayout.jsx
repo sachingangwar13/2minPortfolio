@@ -11,6 +11,7 @@ import {
   LogOut,
   LayoutDashboard,
 } from "lucide-react";
+import NavBar from "../../component/NavBar";
 
 export default function DashboardLayout() {
   const [userName, setUserName] = useState("");
@@ -19,8 +20,10 @@ export default function DashboardLayout() {
     try {
       const token = localStorage.getItem("token");
       if (token) {
+        // console.log(token)
         const payload = JSON.parse(atob(token.split(".")[1] || ""));
         if (payload?.username) setUserName(payload.username);
+        // console.log(atob(token.split(".")[1] || ""));
       }
       const saved = localStorage.getItem("dashboardUserName");
       if (saved && !userName) setUserName(saved);
@@ -41,9 +44,11 @@ export default function DashboardLayout() {
   const linkActive = "bg-zinc-800 text-white";
 
   return (
+    
     <div className="min-h-screen bg-[#0B0C0E] text-white">
-      <div className="mx-auto flex max-w-7xl">
-        {/* Sidebar */}
+      <NavBar />
+      <div className="mx-auto flex ">
+        
         <aside className="sticky top-0 hidden h-screen w-64 flex-col justify-between border-r border-zinc-800 bg-[#111214] px-3 pt-4 pb-4 md:flex">
           <div>
             <div className="mb-4 flex items-center gap-2 px-2">
@@ -109,14 +114,6 @@ export default function DashboardLayout() {
                 <Home className="h-4 w-4" /> Preview Portfolio
               </NavLink>
               <NavLink
-                to="/dashboard/settings"
-                className={({ isActive }) =>
-                  `${linkBase} ${isActive ? linkActive : ""}`
-                }
-              >
-                <Home className="h-4 w-4" /> Settings
-              </NavLink>
-              <NavLink
                 to="/dashboard/link"
                 className={({ isActive }) =>
                   `${linkBase} ${isActive ? linkActive : ""}`
@@ -136,11 +133,12 @@ export default function DashboardLayout() {
 
         {/* Main content */}
         <main className="min-h-screen flex-1 p-4 md:p-6">
+          
           {/* Top navbar inside dashboard content */}
           <div className="mb-4 flex items-center justify-between rounded-lg border border-zinc-800 bg-[#0F1113] p-4">
-            <div className="text-sm text-zinc-300">
+            {/* <div className="text-sm text-zinc-300">
               {userName ? `Signed in as ${userName}` : "Dashboard"}
-            </div>
+            </div> */}
             <div className="flex items-center gap-2">
               <Link
                 to="/dashboard/preview"
