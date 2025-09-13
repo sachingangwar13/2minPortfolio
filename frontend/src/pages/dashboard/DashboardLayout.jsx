@@ -12,10 +12,7 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import NavBar from "../../component/NavBar";
-<<<<<<< HEAD
 // import React from "react";
-=======
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
 
 export default function DashboardLayout() {
   const [userName, setUserName] = useState("");
@@ -49,13 +46,8 @@ export default function DashboardLayout() {
 
   return (
     
-<<<<<<< HEAD
     <div className="min-h-screen bg-black text-white">
       <NavBar/>
-=======
-    <div className="min-h-screen bg-[#0B0C0E] text-white">
-      <NavBar />
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
       <div className="mx-auto flex ">
         
         <aside className="sticky top-0 hidden h-screen w-64 flex-col justify-between border-r border-zinc-800 bg-[#111214] px-3 pt-4 pb-4 md:flex">
@@ -142,17 +134,8 @@ export default function DashboardLayout() {
 
         {/* Main content */}
         <main className="min-h-screen flex-1 p-4 md:p-6">
-<<<<<<< HEAD
           {/* Top navbar inside dashboard content */}
           {/* <div className="mb-4 flex items-center justify-between rounded-lg border border-zinc-800 bg-[#0F1113] p-4">
-=======
-          
-          {/* Top navbar inside dashboard content */}
-          <div className="mb-4 flex items-center justify-between rounded-lg border border-zinc-800 bg-[#0F1113] p-4">
-            {/* <div className="text-sm text-zinc-300">
-              {userName ? `Signed in as ${userName}` : "Dashboard"}
-            </div> */}
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
             <div className="flex items-center gap-2">
               <Link
                 to="/dashboard/preview"
@@ -177,11 +160,7 @@ export default function DashboardLayout() {
                 Logout
               </button>
             </div>
-<<<<<<< HEAD
           </div> */}
-=======
-          </div>
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
           <Outlet context={{ userName, setUserName }} />
         </main>
       </div>

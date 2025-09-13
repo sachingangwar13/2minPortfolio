@@ -3,10 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import LandingPage from "./landingPage/LandingPage";
-<<<<<<< HEAD
-=======
-import Dashboard from "./pages/Dashboard";
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
 import DashboardLayout from "./pages/dashboard/DashboardLayout";
 import Home from "./pages/dashboard/Home";
 import IntroductionPage from "./pages/dashboard/IntroductionPage";
@@ -40,11 +36,7 @@ function App() {
             <Route path="projects" element={<ProjectsPage />} />
             <Route path="preview" element={<PreviewPage />} />
             <Route path="link" element={<LinkPage />} />
-<<<<<<< HEAD
             <Route path="settings" element={<Settings />} />
-=======
-            
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
           </Route>
         </Route>
 

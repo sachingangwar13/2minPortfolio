@@ -39,20 +39,12 @@ export default function PreviewPage() {
 
   return (
     <div className="space-y-4">
-<<<<<<< HEAD
       <div className="flex flex-col items-center justify-between gap-10">
-=======
-      <div className="flex items-center flex-col justify-between">
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
         <h2 className="text-xl font-semibold">Preview</h2>
         {userName && (
           <Link
             to={`/portfolio/${userName}`}
-<<<<<<< HEAD
             className="rounded-md bg-emerald-600 px-4 py-2 text-lg hover:bg-emerald-800 duration-300ms"
-=======
-            className="rounded-md bg-emerald-600 mt-10 px-3 py-1 text-sm"
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
           >
             Open Full Portfolio
           </Link>
@@ -122,7 +114,6 @@ export default function PreviewPage() {
           </div>
         </div>
       )} */}
-<<<<<<< HEAD
       {/* {data.projects && data.projects.length > 0 && (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {data.projects.map((p) => (
@@ -140,8 +131,6 @@ export default function PreviewPage() {
           ))}
         </div>
       )} */}
-=======
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
     </div>
   );
 }

@@ -9,7 +9,6 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
-<<<<<<< HEAD
     
   });
 
@@ -30,25 +29,11 @@ export async function sendOtpEmail(to, otp) {
         <p style="font-size: 12px; color: #aaa;">This is an automated message. Please do not reply to this email.</p>
       </footer>
     </div>`
-=======
-  });
-
-export async function sendOtpEmail(to, otp) {
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
   const info = await transporter.sendMail({
     from: `2 Minute Portfolio <${process.env.EMAIL_USER}>`,
     to,
     subject: "Your verification code",
-<<<<<<< HEAD
     html: message,
-=======
-    text: `Your verification code is ${otp}. It expires in ${
-      process.env.OTP_EXP_MINUTES || 10
-    } minutes.`,
-    html: `<p>Your verification code is <b>${otp}</b>. It expires in ${
-      process.env.OTP_EXP_MINUTES || 10
-    } minutes.</p>`,
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
   });
   return info?.messageId;
 }

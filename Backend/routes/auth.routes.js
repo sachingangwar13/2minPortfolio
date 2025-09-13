@@ -67,30 +67,19 @@ router.post("/google", async (req, res) => {
     const { idToken } = req.body;
     if (!idToken) return res.status(400).json({ message: "idToken required" });
     const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-<<<<<<< HEAD
-
-=======
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
     const ticket = await client.verifyIdToken({
       idToken,
       audience: process.env.GOOGLE_CLIENT_ID,
     });
     const payload = ticket.getPayload();
-<<<<<<< HEAD
     if (!payload) {
       return res.status(401).json({ message: "Invalid Google token" });
     }
 
-=======
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
     const email = payload.email;
     const username = (payload.name || email.split("@")[0])
       .toLowerCase()
       .replace(/\s+/g, "");
-<<<<<<< HEAD
-
-=======
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
     let user = await User.findOne({ email });
     if (!user) {
       user = await User.create({
@@ -100,18 +89,11 @@ router.post("/google", async (req, res) => {
       });
     }
     const token = user.generateToken();
-<<<<<<< HEAD
-
-=======
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
     return res
       .status(200)
       .json({ token, user: { id: user._id, username: user.username, email } });
   } catch (e) {
-<<<<<<< HEAD
     
-=======
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
     console.error(e);
     return res.status(401).json({ message: "Google token invalid" });
   }

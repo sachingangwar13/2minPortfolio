@@ -8,11 +8,7 @@ export default function IntroductionPage() {
     fullName: "",
     title: "",
     location: "",
-<<<<<<< HEAD
     status: [],
-=======
-    status: "",
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
     socialLinks: {
       gmail: "",
       github: "",
@@ -119,18 +115,13 @@ export default function IntroductionPage() {
             />
           </div>
           <div>
-<<<<<<< HEAD
             <label className="mb-1 block text-sm text-zinc-300">Status</label>{" "}
-=======
-            <label className="mb-1 block text-sm text-zinc-300">Status</label>
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
             <select
               required
               value={intro.status}
               onChange={(e) => setIntro({ ...intro, status: e.target.value })}
               className="w-full rounded-md border border-zinc-700 bg-zinc-900 p-2"
             >
-<<<<<<< HEAD
               {" "}
               <option value="" disabled>
                 {" "}
@@ -139,14 +130,6 @@ export default function IntroductionPage() {
               <option value="hireme">hireme</option>{" "}
               <option value="looking for a job">looking for a job</option>{" "}
               <option value="open to work">open to work</option>{" "}
-=======
-              <option value="" disabled>
-                Select status
-              </option>
-              <option value="hireme">hireme</option>
-              <option value="looking for a job">looking for a job</option>
-              <option value="open to work">open to work</option>
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
             </select>
           </div>
         </div>

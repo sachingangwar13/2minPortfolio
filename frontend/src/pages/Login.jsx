@@ -118,10 +118,7 @@ function Login() {
                 data-context="signin"
                 data-ux_mode="popup"
                 data-callback="handleGoogleCredential"
-<<<<<<< HEAD
                 data-auto_select="false"
-=======
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
               />
               <div
                 className="g_id_signin"

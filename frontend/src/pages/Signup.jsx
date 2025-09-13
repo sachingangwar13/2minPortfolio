@@ -9,10 +9,7 @@ function Signup() {
   const [error, setError] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState("");
-<<<<<<< HEAD
   const [isSending, setIsSending] = useState(false);
-=======
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -91,28 +88,8 @@ function Signup() {
               className="bg-opacity-50 w-full rounded-lg border border-gray-700 bg-gray-800 py-2 pr-3 pl-10 text-white placeholder-gray-400 transition duration-200 focus:border-green-500 focus:ring-2 focus:ring-green-500"
             />
           </div>
-<<<<<<< HEAD
           
 
-=======
-          <div className="mt-3 flex items-center gap-2">
-            <button
-              type="button"
-              onClick={sendOtp}
-              className="rounded-md bg-zinc-700 px-3 py-2 text-sm"
-            >
-              {otpSent ? "Resend OTP" : "Send OTP"}
-            </button>
-            {otpSent && (
-              <input
-                value={otp}
-                onChange={(e) => setOtp(e.target.value)}
-                placeholder="Enter OTP"
-                className="w-40 rounded-md border border-zinc-700 bg-zinc-900 p-2 text-sm"
-              />
-            )}
-          </div>
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
 
           <div className="mt-5 flex -translate-y-1/2 items-center">
             <Mail className="absolute left-3 text-gray-700" />
@@ -126,7 +103,6 @@ function Signup() {
             />
           </div>
 
-<<<<<<< HEAD
           <div className="flex items-center gap-3">
             <button
               type="button"
@@ -160,18 +136,11 @@ function Signup() {
           </div>
 
           <div className="flex justify-center mt-4">
-=======
-          <div className="flex justify-center">
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
             <button
               disabled={loading}
               className="transition-duration-200 w-full rounded-md bg-gradient-to-r from-green-400 to-emerald-500 py-3 font-bold hover:bg-gradient-to-r hover:from-green-400 hover:to-blue-400 disabled:opacity-60"
             >
-<<<<<<< HEAD
               {loading ?"Signing up..." : "Sign Up"}
-=======
-              {loading ? "Signing up..." : "Sign Up"}
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
             </button>
           </div>
           {error && (
