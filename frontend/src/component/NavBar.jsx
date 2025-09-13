@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CoverDemo } from "../component/Cover";
 import { GithubIcon, TwitterIcon } from "lucide-react";
+import {logo} from '../assets/white_on_trans.png';
 
 export default function NavBar() {
     const [loggedIn, setLoggedIn] = useState(
@@ -28,7 +29,7 @@ export default function NavBar() {
           <span className="inline-flex cursor-pointer items-center gap-2 from-pink-500 to-violet-500 text-[1rem] font-bold tracking-tight text-white transition-colors duration-300 hover:text-neutral-400 sm:text-2xl">
             
               <img
-              src="../../public/white_on_trans.png"
+              src="../assets/white_on_trans.png"
               alt="Portfolio Logo"
               className="mt-2 h-6 w-6 object-contain sm:h-8 sm:w-8"
             />
