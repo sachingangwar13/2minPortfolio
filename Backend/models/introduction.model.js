@@ -25,19 +25,11 @@ const introductionSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-<<<<<<< HEAD
   status: [{
     type: String,
     enum: ["hireme", "looking for a job", "open to work"],
     required: true,
   }],
-=======
-  status: {
-    type: String,
-    enum: ["hireme", "looking for a job", "open to work"],
-    required: true,
-  },
->>>>>>> a8e449fd799e33b483398f5a238847bbd3d74651
   socialLinks: {
     gmail: {
       type: String,
