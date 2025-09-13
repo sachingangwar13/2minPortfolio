@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-app",
+  "version": "1.0.0",
+  "description": "2 Minute Portfolio Builder - Full Stack Application",
+  "private": true,
+  "scripts": {
+    "start": "node Backend/server.js",
+    "dev": "cd Backend && npm run dev",
+    "build:frontend": "npm run build"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

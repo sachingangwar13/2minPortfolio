@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/dashboard(.*)", "destination": "/" },
+    { "source": "/portfolio(.*)", "destination": "/" },
+    { "source": "/login", "destination": "/" },
+    { "source": "/signup", "destination": "/" }
+  ]
+}
