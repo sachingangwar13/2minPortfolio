@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CoverDemo } from "../component/Cover";
 import { GithubIcon, TwitterIcon } from "lucide-react";
-import {logo} from '../assets/white_on_trans.png';
 
 export default function NavBar() {
     const [loggedIn, setLoggedIn] = useState(

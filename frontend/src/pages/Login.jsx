@@ -72,7 +72,7 @@ function Login() {
 
   return (
     <div className="flex h-screen flex-col items-center justify-center bg-[#0C0A09]">
-      <div className="flex h-90 w-90 flex-col items-center rounded-lg bg-[#18181B] p-6">
+      <div className="flex  w-90 flex-col items-center rounded-lg bg-[#18181B] p-6">
         <h1 className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text pb-4 text-4xl font-bold text-transparent">
           Login
         </h1>
