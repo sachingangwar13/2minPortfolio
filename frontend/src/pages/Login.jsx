@@ -37,7 +37,7 @@ function Login() {
         localStorage.setItem("token", data.token);
         localStorage.removeItem("dashboardUserName");
         navigate("/dashboard", { replace: true });
-      } catch (e) {
+      } catch (e){
         setError(e.message);
       }
     };
@@ -91,7 +91,7 @@ function Login() {
           </div>
 
           <div className="mt-5 flex -translate-y-1/2 items-center">
-            <Mail className="absolute left-3 text-gray-700" />
+            <Lock className="absolute left-3 text-gray-700" />
             <input
               type="password"
               name="password"
@@ -110,6 +110,8 @@ function Login() {
               {loading ? "Logging in..." : "Login"}
             </button>
           </div>
+          {console.log(googleReady)
+          }
           {googleReady && (
             <div className="mt-4">
               <div

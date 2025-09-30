@@ -88,22 +88,22 @@ export default function DashboardLayout() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white flex flex-col">
       <NavBar />
 
-      <div className="mx-auto flex">
+      <div className="mx-auto flex w-full flex-1">
         {/* Sidebar */}
         <Sidebar open={open} setOpen={setOpen}>
-          <SidebarBody className="justify-between gap-20 ">
+          <SidebarBody className="justify-between gap-10">
             <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
-              {/* <div className="mb-4 flex justify-center items-center gap-2 px-2">
+              <div className="mb-4 flex items-center gap-2 px-2">
                 <LayoutDashboard className="h-5 w-5 text-emerald-400" />
                 {open && (
                   <span className="text-sm font-semibold">
                     User Dashboard
                   </span>
                 )}
-              </div> */}
+              </div>
 
               <div className="flex flex-col gap-2">
                 {links.map((link, idx) => (
@@ -111,6 +111,8 @@ export default function DashboardLayout() {
                 ))}
               </div>
             </div>
+
+            {/* Logout button at bottom */}
             <button
               onClick={handleLogout}
               className="flex items-center gap-2 rounded-md px-3 py-2 text-zinc-300 hover:bg-zinc-800"

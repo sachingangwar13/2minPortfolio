@@ -22,12 +22,12 @@ export default function NavBar() {
   };
 
   return (
-    <nav className="relative z-10  w-full py-2 bg-neutral-800 ">
+    <nav className="relative z-10 md:flex w-full py-2 bg-neutral-800 ">
         <div className="container mx-auto flex items-center px-4 justify-between sm:px-6 lg:px-8">
           <span className="inline-flex cursor-pointer items-center gap-2 from-pink-500 to-violet-500 text-[1rem] font-bold tracking-tight text-white transition-colors duration-300 hover:text-neutral-400 sm:text-2xl">
             
               <img
-              src="../assets/white_on_trans.png"
+              src="../../src/assets/white_on_trans.png"
               alt="Portfolio Logo"
               className="mt-2 h-6 w-6 object-contain sm:h-8 sm:w-8"
             />
